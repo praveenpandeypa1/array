@@ -1,0 +1,46 @@
+** here for kth largest and kth smallest we will just calculate it using min heap and max_heap anf if the size is greater the given K element just pop the heap:
+
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<queue>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    int k;
+    cin>>k;
+    priority_queue<int>max_heap;
+    for(int num:arr)
+    {
+        max_heap.push(num);
+        if(max_heap.size()>k)
+        {
+            max_heap.pop();
+        }
+    }
+    priority_queue<int,vector<int>, greater<int>> min_heap;
+    for(int num:arr)
+    {
+        min_heap.push(num);
+        if(min_heap.size()>k)
+        {
+            min_heap.pop();
+        }
+    }
+    cout<<"the"<<k<<"largest element fro the array are:"<<max_heap.top()<<endl;
+    cout<<"the"<<k<<"smallest element from the array are:"<<min_heap.top();
+    return 0;
+}
+
+
+// Max heap createion way== priority_queue<int>max_heap;
+//Min_heap creation way is simple== priority_queue<int, vector<int>, greater<int>> min_heap;
+
+** keep these things very crystal clear in mind
