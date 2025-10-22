@@ -1,0 +1,1 @@
+here the reversal is simple just take two pointer left and right and swap them upon making a function of void and increase the left and decrease the right one step each time:
